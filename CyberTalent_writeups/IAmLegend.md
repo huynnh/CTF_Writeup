@@ -1,12 +1,13 @@
 # Challenge - Iam Legend
 
-- **Difficulty**: Easy  
-- **Vulnerability**: JSFuck Obfuscation Leak
+**Difficulty**: Easy  
+**Vulnerability**: JSFuck Obfuscation Leak
 
 ## 🔍 Initial Analysis
-- Login page with obfuscated JavaScript (`JSFuck`).
-- Server stack same as Challenge 2.
+Use Buite Suite to catch the request. We observe a type of obfuscated JS which is **JSFuck** in `<script>` tag.
+
+![strange text](/resources/img-3.1.png)
 
 ## ⚔️ Exploitation
-- Use **de4js** tool to deobfuscate.
-- Extracted condition: `user == Cyber && pass == Talent`.
+Use **de4js** tool to deobfuscate JSFuck.
+Extracted condition: `user == Cyber && pass == Talent`.

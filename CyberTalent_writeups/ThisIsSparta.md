@@ -1,20 +1,21 @@
 # Challenge - This is Sparta
 
-- **Difficulty**: Easy  
-- **Vulnerability**: Exposed Client-Side Logic
+**Difficulty**: Easy  
+**Vulnerability**: Exposed Client-Side Logic
 
 ## 🔍 Initial Analysis
-- Server: Nginx 1.27.1, PHP 7.2.34
-- JavaScript code in the response contains obfuscated login check.
+Use Buite Suite to catch the request. There is a strange Javascript code in `<script>` tag:
+
+![Strange JS code](/resources/img-2.1.png)
 
 ## ⚔️ Exploitation
-- Use **CyberChef** to decode the JavaScript array and variables.
-- Logic shows credentials are hardcoded: `username = Cyber`, `password = Talent`.
+Use **CyberChef** or any decrypt tools to decode the JavaScript array and variables.  
+Logic shows credentials are hardcoded: `username = Cyber`, `password = Talent`.
 
 ## ⚠️ Impact
-- Complete bypass of login mechanism.
-- Exposes sensitive credentials in client-side JS.
+Complete bypass of login mechanism.  
+Exposes sensitive credentials in client-side JS.
 
 ## 🛠️ Remediation
-- Authentication must be handled on the server.
-- Never expose credentials or logic in client-side code.
+Authentication must be handled on the server.  
+Never expose credentials or logic in client-side code.

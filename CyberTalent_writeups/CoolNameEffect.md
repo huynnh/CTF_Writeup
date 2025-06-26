@@ -1,12 +1,28 @@
 # Challenge - Cool Name Effect
 
-- **Difficulty**: Easy  
-- **Vulnerability**: PACKER JavaScript Obfuscation
+**Difficulty**: Easy  
+**Vulnerability**: PACKER JavaScript Obfuscation
 
 ## 🔍 Initial Analysis
-- Suspicious `<script>` using PACKER by Dean Edwards.
+Suspicious code in `<script>` tag is PACKER JavaScript Obfuscation.  
+![PACKER JavaScript Obfuscation](/resources/img-4.1.png)
+
+Also in `<script>` tag have a function to decrypt it.  
+![Decrypt Function](/resources/img-4.2.png)
 
 ## ⚔️ Exploitation
-1. Copy and modify obfuscated JS to output decoded source (`console.log(p)`).
-2. Use Node.js to evaluate the decoded source.
-3. Identify and extract the flag or credential from the revealed logic.
+Install NodeJS
+
+Copy the decrypt function into a `.js` file.  
+![Decrypt Function](/resources/img-4.3.png)
+
+Change the `return p;` to `console.log(p)` and execute it with NodeJS.  
+After execute successfully, copy all output into the second `.js` file. This output is the origin code.
+
+We observe the JS code, there is a suspicious function:
+![suspicious function](/resources/img-4.4.png)
+
+Adjust code a little bit like this:  
+![suspicious function](/resources/img-4.5.png)  
+
+Then execute the second `.js` file with NodeJS.
