@@ -1,7 +1,10 @@
-# SCORE BOARD CHALLENGE - First Challenge of OWASP Juice Shop
+# Juice Shop Writeup: Score Board
 
-## Challenge
-Find the hidden scoreboard by locating the hidden URL of scoreboard page.
+## Challenge Overview
+**Title**: Score Board  
+**Category**: Miscellaneous  
+**Difficulty**: ⭐ (1/6)  
+**Goal**: Find the hidden scoreboard by locating the hidden URL of scoreboard page.
 
 ## Resolve
 
