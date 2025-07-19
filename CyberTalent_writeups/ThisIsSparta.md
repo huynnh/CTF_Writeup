@@ -6,7 +6,7 @@
 ## 🔍 Initial Analysis
 Use Buite Suite to catch the request. There is a strange Javascript code in `<script>` tag:
 
-![Strange JS code](/resources/img-2.1.png)
+![Strange JS code](../assets/images/CyberTalent/img-2.1.png)
 
 ## ⚔️ Exploitation
 Use **CyberChef** or any decrypt tools to decode the JavaScript array and variables.  

@@ -10,7 +10,7 @@ Cookie includes a `role` parameter.
 ## ⚔️ Exploitation
 Use Buite Suite to catch the request
 
-![request image](/resources/img-1.1.png)
+![request image](../assets/images/CyberTalent/img-1.1.png)
 
 Change `role=support` to `role=admin` while keeping the same PHPSESSID.
 Result: Gain unauthorized admin access.

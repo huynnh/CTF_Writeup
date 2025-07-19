@@ -12,12 +12,12 @@ Burp Suite: Use Interception Proxy to catch request/response packet between clie
 ## Exploit  
 ### Step 1: Use Burp Suite to catch request/response.  
 - After capturing the packet, go to the **HTTP history** tab, find the URL `/rest/products/search?q=`. Look at **Response** session, we will see the data in JSON format as shown below:  
-![Respone sestion image](/assets/images/christmasspecial_1.png)  
+![Response session image](../assets/images/OWASP/christmasspecial_1.png)  
 - In this data, we see `deleteAt` line is `NULL, which mean this product is not deleted/hidden.  
 
 ### Step 2: Inject SQL query to request packet
 - Inject SQL query `test' UNION SELECT * FROM Products WHERE deletedAt IS NOT NULL--` to the URL `/rest/products/search?q=`, the response packet will look like this:  
-![Respone sestion image](/assets/images/christmasspecial_2.png)  
+![Response session image](../assets/images/OWASP/christmasspecial_2.png)  
 - We have triggered SQL syntax error, which also leaked the query is used to search for product.  
 ```
 SELECT * FROM Products
@@ -31,8 +31,8 @@ WHERE deletedAt IS NOT NULL--%' OR description LIKE '%test' UNION SELECT * FROM 
 
 ### Step 3: Adding the product to basket.
 - Add a product to basket and use Burp Suite to capture the POST packet and modify it. From Change the number of `ProductId` to  `10`.  
-![Edited POST method image](/assets/images/christmasspecial_3.png)  
-![Result image](/assets/images/christmasspecial_4.png)  
+![Edited POST method image](../assets/images/OWASP/christmasspecial_3.png)  
+![Result image](../assets/images/OWASP/christmasspecial_4.png)  
 - Now purchase the product to complete the challenge.
 
 # Explanation
